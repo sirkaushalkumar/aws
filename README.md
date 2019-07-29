@@ -28,4 +28,4 @@ AWS Access Methods
 - SDKs
 - CLI
 
-> Account Creation is avery simple and staright forward, so not mentiioning the steps here.
+> Account Creation is a very simple and straightforward process, so not mentiioning the steps here.
