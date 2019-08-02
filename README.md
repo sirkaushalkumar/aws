@@ -28,6 +28,8 @@ AWS Access Methods
 - SDKs
 - CLI
 
+## Getting Started with AWS
+
 > Account Creation is a very simple and straightforward process, so not mentiioning the steps here.
 
 > We can manage account ID for IAM users sign in link at IAM Dashboard.
@@ -45,3 +47,39 @@ We can also add an existing user to a group. They can have also additional permi
 > Programmatic Access is anything except AWS Management Console Access.
 
 We can delete the group from Console with users still in being there. But apart from it, if using it through CLI or SDK, we need to remove users first. 
+
+## VPC, Security Group, NACL, Elastic IP, NAT, VPN, VPC Perring, & D Connect
+
+### VPC Introduction
+
+AWS has regions. Regions has availability zones. 
+
+Every region can have one or more VPCs and Every Availability Zone has one or more VPC Subnets
+
+VPCs cannot span across multiple regions and VPC Subnets cannot cannot span across multiple availability zones.
+
+VPC is a virtual network or data center inside AWS for one client, or a department in a enterprise.
+
+The AWS Client has full control over resources and virtual compute isntances (virtual servers) hosted inside that VPC
+
+Is similar to having your own data center inside AWS
+
+Logically isolated from other VPCs on AWS
+
+You can have one or more IP Address subnets inside a VPC.
+
+A VPC is confines to an AWS regiosn and does not extend between regions.
+
+VPC Components are:
+
+- CIDR and IP Address subnets
+- Implied Router
+- Route Tables
+- Internet Gateways
+- Security Groups
+- Network Access Control Lists (N ACLs)
+- Virtual Private Gateway
+
+IPv6 Addressing
+- All IPV6 addresses are Public
+- Hence, AWS allocates the IPV6 address range if you require that
