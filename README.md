@@ -83,3 +83,57 @@ VPC Components are:
 IPv6 Addressing
 - All IPV6 addresses are Public
 - Hence, AWS allocates the IPV6 address range if you require that
+
+## VPC Components - Implied Router and Route Tables
+
+Inplied Router is what connects different subnets together. It is the central routing function.
+
+It connects the different AZ's together and connects the VPC tp the Internet Gateway
+
+Each subnet will have a route table the route table uses to forwrd traffic within the VPC.
+
+The route tables will also have enteries to external destinations.
+
+We can have upto 200 route tables per VPC
+
+We can have up to 50 routes enteries per route table
+
+
+## Amazon EC2
+
+Amazon EC2 is a web service that provides resizable compute capacity in the cloud. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, allowing us to quickly scale capacity, both up and down, as our computing requirements change.
+
+EC2 Pricing Models
+
+| _S. No._| _Type_ | _Description_ |
+|---|---|---|
+|1.| **OnDemand**| Allows us to pay a fixed rate by the hour <br/> (or by the second) with no commitment |
+|2.| **Reserved**|  Provides us with a capacity reservation, and offer <br/> a significant discount on the hourly charge  for an <br/>instance. Contract Terms ate 1 Year and 3 Year Terms|
+|3.| **Spot**| Enables us to bid whatever price we wantfor instance <br/>capacity, providing for even greated savings if our  <br/>applications have flexible start and end times |
+|1.| **Dedicated Hosts**| Physical EC2 server dedicated for our use.Dedicated  <br/> Hosts can help us reduce costs by allowing us to use<br/> our existing server-bound software licenses |
+
+On Demand pricing is useful for 
+- Users that want the low cost and flexibility of Amazon EC2 without any up-front paymentor long term commitment
+- Applications with short tem, spiky, or unpredicatb;e workloads that cannot be interrupted
+- Applications being developed or tested on Amazon EC2 for the first time.
+
+Reserved pricings is useful for:
+- Applications with steady state or predicatble usage
+- Applications that require reserved capacity
+- Users able to make upfront payments to reduce their total computing costs even further.
+
+Reserved Pricing types:
+- **Standard Reserved Instances** - These offer upto 75% off on demand isntances. The more we pay up front and longer the contract, the greater the discount
+- **Convertible Reserved Instances** - These offer up to 54% off on demand capability to change the attributes of the RI as long as  the exchange results in the creation of Reserved Instances or equal or greater value
+- **Scheduled Reserved Instances** - These are available to launch within the time windows we reserve. This option allows us to match our capacity reservation to a predicatable recurring schedule that only requires a fraction of a day, a week, or a month
+
+Spot pricing is useful for:
+- Applications that have flexible start and end times
+- Applications that are only feasible at very low compute prices
+- Users with urgent computing needs for large amounts of additional capacity.
+
+Dedicated Hosts priving is useful for
+- Useful for regulatory requiremnets thar may not support multi-tenant virtualization
+- Great for licensing which does not support multi-tenacy or cloud deployments
+- can be purchased On-Demand (hourly)
+- Can be purchased as Reservation for up to 70% off on the On-Demad price.
