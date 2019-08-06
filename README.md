@@ -110,7 +110,7 @@ EC2 Pricing Models
 |1.| **OnDemand**| Allows us to pay a fixed rate by the hour <br/> (or by the second) with no commitment |
 |2.| **Reserved**|  Provides us with a capacity reservation, and offer <br/> a significant discount on the hourly charge  for an <br/>instance. Contract Terms ate 1 Year and 3 Year Terms|
 |3.| **Spot**| Enables us to bid whatever price we wantfor instance <br/>capacity, providing for even greated savings if our  <br/>applications have flexible start and end times |
-|1.| **Dedicated Hosts**| Physical EC2 server dedicated for our use.Dedicated  <br/> Hosts can help us reduce costs by allowing us to use<br/> our existing server-bound software licenses |
+|4.| **Dedicated Hosts**| Physical EC2 server dedicated for our use.Dedicated  <br/> Hosts can help us reduce costs by allowing us to use<br/> our existing server-bound software licenses |
 
 On Demand pricing is useful for 
 - Users that want the low cost and flexibility of Amazon EC2 without any up-front paymentor long term commitment
