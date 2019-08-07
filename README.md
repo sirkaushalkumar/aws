@@ -86,87 +86,40 @@ IPv6 Addressing
 
 ## VPC Components - Implied Router and Route Tables
 
-Inplied Router is what connects different subnets together. It is the central routing function.
+**Implied Router**
 
-It connects the different AZ's together and connects the VPC tp the Internet Gateway
+Inplied Router is what connects different subnets together. It is the central VPC routing function.
+
+It connects the different AZ's together and connects the VPC to the Internet Gateway
 
 Each subnet will have a route table the route table uses to forwrd traffic within the VPC.
 
 The route tables will also have enteries to external destinations.
 
+**Route Tables**
+
 We can have upto 200 route tables per VPC
 
 We can have up to 50 routes enteries per route table
 
+Each subnet must be associated with only one route table at any given time.
 
-## Amazon EC2
+If we do not specify a subnet to a route table association, the subnet (when created) will be associated with thr main (default) VPC table
 
-Amazon EC2 is a web service that provides resizable compute capacity in the cloud. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, allowing us to quickly scale capacity, both up and down, as our computing requirements change.
+We can change the subnet association to another route table
 
-EC2 Pricing Models
+We can also edit ther main (default) route table if we need, but we cannot delete the main(default) route table.
+- However, if we  make custom route table manually become the main route table, then we can delete the former main, as it is no longer a manin route table.
 
-| _S. No._| _Type_ | _Description_ |
-|---|---|---|
-|1.| **OnDemand**| Allows us to pay a fixed rate by the hour <br/> (or by the second) with no commitment |
-|2.| **Reserved**|  Provides us with a capacity reservation, and offer <br/> a significant discount on the hourly charge  for an <br/>instance. Contract Terms ate 1 Year and 3 Year Terms|
-|3.| **Spot**| Enables us to bid whatever price we wantfor instance <br/>capacity, providing for even greated savings if our  <br/>applications have flexible start and end times |
-|4.| **Dedicated Hosts**| Physical EC2 server dedicated for our use.Dedicated  <br/> Hosts can help us reduce costs by allowing us to use<br/> our existing server-bound software licenses |
+Every route table in a VPC comes with a default rule that allows all VPC Subnets to communicate with each other.
+- We cannot modify or delete this rule
 
-On Demand pricing is useful for 
-- Users that want the low cost and flexibility of Amazon EC2 without any up-front paymentor long term commitment
-- Applications with short tem, spiky, or unpredicatb;e workloads that cannot be interrupted
-- Applications being developed or tested on Amazon EC2 for the first time.
+## IP Addressing Internet Gateway - Subnet Types
 
-Reserved pricings is useful for:
-- Applications with steady state or predicatble usage
-- Applications that require reserved capacity
-- Users able to make upfront payments to reduce their total computing costs even further.
+We have full control over the IP range that we create and use but it has to rfc 1918 or a public routable IP Address block that we have registered or assigned to us.
 
-Reserved Pricing types:
-- **Standard Reserved Instances** - These offer upto 75% off on demand isntances. The more we pay up front and longer the contract, the greater the discount
-- **Convertible Reserved Instances** - These offer up to 54% off on demand capability to change the attributes of the RI as long as  the exchange results in the creation of Reserved Instances or equal or greater value
-- **Scheduled Reserved Instances** - These are available to launch within the time windows we reserve. This option allows us to match our capacity reservation to a predicatable recurring schedule that only requires a fraction of a day, a week, or a month
+Once the VPC is created, we cannot change its CIDR block range
 
-Spot pricing is useful for:
-- Applications that have flexible start and end times
-- Applications that are only feasible at very low compute prices
-- Users with urgent computing needs for large amounts of additional capacity.
+We can create CIDR block between /28 and /16. /28 IPs have address of length 32 bits. 28 are for subnests and 4 are for hosts, EC2 and subnets that we use. 4 means we can have 16 IP address assigned. Simlarly /16 is 16 and 16 like we had 28 and 4 for /28.
 
-Dedicated Hosts priving is useful for
-- Useful for regulatory requiremnets thar may not support multi-tenant virtualization
-- Great for licensing which does not support multi-tenacy or cloud deployments
-- can be purchased On-Demand (hourly)
-- Can be purchased as Reservation for up to 70% off on the On-Demad price.
-
-|Family|Speciality|Use Case|
-|:---:|:---:|:---:|
-|F1|Field Programmable Gate Array|Genomics reserach, financial analytics, real-<br/>time video processing, big data etc.|
-|I3|High Speed Storage|NoSQL DBs, Data Warehousing etc|
-|G3|Graphics Intensive|Video Encoding/ 3D Application Sreaming|
-|H1|High Disk Throughput|MapReduce-based workloads, distributed file<br/>systems such as HDFS and MapR-FS|
-|T3|Lowest Cost, General Purpose|Wed Servers/Small DBs|
-|D2|Dense Storage|Fileservers/Data Warehousing/Hadoop|
-|R5|Memory Optimized|Memory Intensive Apps/DBs|
-|M5|General Purpose|Application Servers|
-|C5|Compute Optimized|CPU Intensive Apps/DBs|
-|P3|Graphics/General Purpose GPU|Machine Learning, Bit Coin Mining etc|
-|X1|Memory Optimized|SAP Hana/Apache Sparl etc|
-|Z1D|High compute capacity and a high<br/> memory footprint|Ideal for electronic design automation (EDA) <br/> and certain relational database workloads with <br/> high-percor licensing costs|
-|A1|Arm-based workloads|Scale out workloads such as web servers|
-|U-6tb1|Bare Metal|Bare metal capabilities that eliminate <br/> virtualization overhead|
-
-EC2 Instance Types - Mnemonic (FIGHT DR MC PXZAU)
-- F - For FPGA
-- I - IOPS
-- G - Graphics
-- H - High Disk ThroughPut
-- T - Cheap General Purpose (think T2 Micro)
-- D - For Density
-- R - For RAM
-- M - Main Choice for General Purpose Apps
-- C - For Compute
-- P - Graphics (thins Pics)
-- X - Extreme Memory
-- Z - Extreme Memory and CPU
-- A - Arm Based workloads
-- U - Bare Metal
+If you need a different CIDR size, create a new VPC.
