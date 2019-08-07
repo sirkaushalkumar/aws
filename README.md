@@ -137,3 +137,36 @@ Dedicated Hosts priving is useful for
 - Great for licensing which does not support multi-tenacy or cloud deployments
 - can be purchased On-Demand (hourly)
 - Can be purchased as Reservation for up to 70% off on the On-Demad price.
+
+|Family|Speciality|Use Case|
+|:---:|:---:|:---:|
+|F1|Field Programmable Gate Array|Genomics reserach, financial analytics, real-<br/>time video processing, big data etc.|
+|I3|High Speed Storage|NoSQL DBs, Data Warehousing etc|
+|G3|Graphics Intensive|Video Encoding/ 3D Application Sreaming|
+|H1|High Disk Throughput|MapReduce-based workloads, distributed file<br/>systems such as HDFS and MapR-FS|
+|T3|Lowest Cost, General Purpose|Wed Servers/Small DBs|
+|D2|Dense Storage|Fileservers/Data Warehousing/Hadoop|
+|R5|Memory Optimized|Memory Intensive Apps/DBs|
+|M5|General Purpose|Application Servers|
+|C5|Compute Optimized|CPU Intensive Apps/DBs|
+|P3|Graphics/General Purpose GPU|Machine Learning, Bit Coin Mining etc|
+|X1|Memory Optimized|SAP Hana/Apache Sparl etc|
+|Z1D|High compute capacity and a high<br/> memory footprint|Ideal for electronic design automation (EDA) <br/> and certain relational database workloads with <br/> high-percor licensing costs|
+|A1|Arm-based workloads|Scale out workloads such as web servers|
+|U-6tb1|Bare Metal|Bare metal capabilities that eliminate <br/> virtualization overhead|
+
+EC2 Instance Types - Mnemonic (FIGHT DR MC PXZAU)
+- F - For FPGA
+- I - IOPS
+- G - Graphics
+- H - High Disk ThroughPut
+- T - Cheap General Purpose (think T2 Micro)
+- D - For Density
+- R - For RAM
+- M - Main Choice for General Purpose Apps
+- C - For Compute
+- P - Graphics (thins Pics)
+- X - Extreme Memory
+- Z - Extreme Memory and CPU
+- A - Arm Based workloads
+- U - Bare Metal
