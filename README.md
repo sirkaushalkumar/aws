@@ -123,3 +123,25 @@ Once the VPC is created, we cannot change its CIDR block range
 We can create CIDR block between /28 and /16. /28 IPs have address of length 32 bits. 28 are for subnests and 4 are for hosts, EC2 and subnets that we use. 4 means we can have 16 IP address assigned. Simlarly /16 is 16 and 16 like we had 28 and 4 for /28.
 
 If you need a different CIDR size, create a new VPC.
+
+The different subnets within a VPC can not overlap (basic TCP/IP rule) 
+
+We can however expand our VPC CIDR by adding new/extra IP address ranges.
+
+### AWS Reserved IPs in each subnet
+
+First 4 IP addresses in each subnet and the last one are reserved by AWS.
+- For eaxample if the subnet is 10.0.0.0/24
+    - 10.0.0.0 is the base network
+    - 10.0.0.1 is VPC Router
+    - 10.0.0.2 is DNS realted
+    - 10.0.0.3 is reserved for future use
+    - 10.0.0.255 is the last IP which we cannot use.
+
+### Internet Gateway
+
+Internet Gateway is the gateway through which our VPC communicates with the Internet, and with other AWS Services.
+
+Is a horizontally scaled, redundant, and highly available VPC component
+
+It performs NAT (Network Address Translation)(static one-to-one) between our Private ans Public (or Elastic) IPv4 addresses.
