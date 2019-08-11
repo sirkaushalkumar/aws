@@ -1,4 +1,4 @@
-# aws
+# Amazon Web Services
 
 ## Introduction to Amazon Web Services
 
@@ -28,7 +28,7 @@ AWS Access Methods
 - SDKs
 - CLI
 
-## Getting Started with AWS
+### Getting Started with AWS
 
 > Account Creation is a very simple and straightforward process, so not mentiioning the steps here.
 
@@ -84,7 +84,7 @@ IPv6 Addressing
 - All IPV6 addresses are Public
 - Hence, AWS allocates the IPV6 address range if you require that
 
-## VPC Components - Implied Router and Route Tables
+### VPC Components - Implied Router and Route Tables
 
 **Implied Router**
 
@@ -114,7 +114,7 @@ We can also edit ther main (default) route table if we need, but we cannot delet
 Every route table in a VPC comes with a default rule that allows all VPC Subnets to communicate with each other.
 - We cannot modify or delete this rule
 
-## IP Addressing Internet Gateway - Subnet Types
+### IP Addressing Internet Gateway - Subnet Types
 
 We have full control over the IP range that we create and use but it has to rfc 1918 or a public routable IP Address block that we have registered or assigned to us.
 
@@ -145,3 +145,38 @@ Internet Gateway is the gateway through which our VPC communicates with the Inte
 Is a horizontally scaled, redundant, and highly available VPC component
 
 It performs NAT (Network Address Translation)(static one-to-one) between our Private ans Public (or Elastic) IPv4 addresses.
+
+It supports IPv4 and IPV6
+
+### Public Subnet vs Private Subnet
+
+### VPC Types and Introduction to Security Groups
+
+**VPC Types**
+- A Default VPC
+    - created in each AWS region when an AWS account is created
+    - Has default CIDR, Security Group, N ACL, and route table settings
+    - Has an Internet gateway by default
+- A Custom (non-default) VPC
+    - Is a VPC an AWS account owner created
+    - AWS user creating the custom VPC can decide the CIDR
+    - Has its own default desurity group, NACL, and Route Tables
+    - Does not have an Internet Gateway by defaut, one needs to be created if needed.
+
+### Security Groups
+
+> NIC Cards in AWS are called as **Elastic Network Interface**
+
+They are nothing but firewall which can allow or disallow traffic in and out.
+
+Anything coming in to EC2 through ENI is inbound and anything going out is outbound
+
+- A security group is a virtual firewall
+- It contolls traffic at the virtual server (EC@ Instnace) level
+    - Specifically at the virtual Network Interface Level
+- Upto 5 security groups per EC2 instance interface can be applied
+- **Stateful**, return traffic, of allowed inbound traffic, is allowed , even if there are no rules to allow it.
+- **Can only** permit rules, **can not** deny rules.
+- Implicit deny rules at the end
+- Security groups are associated with EC2 instances netork interfaces
+- All rules are evaluated to find a permit rule. 
