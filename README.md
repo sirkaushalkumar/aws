@@ -180,3 +180,36 @@ Anything coming in to EC2 through ENI is inbound and anything going out is outbo
 - Implicit deny rules at the end
 - Security groups are associated with EC2 instances netork interfaces
 - All rules are evaluated to find a permit rule. 
+
+- Any Virtual Server Instance (EC2) created must have a security group for it specified during its launch. One can either choose an existing one, or create a new security group during launch.
+- Each VPC created will have a default security group created for it, you cannot delete a default Security Group.
+- Security groups are VPC resources, hence different EC2 instances, in different availaibility zones, belonging to the same VPC, can have the same security group applied to them. 
+- **Changes to security groups take effect immediately**
+
+#### Default and non-Default Security Groups
+
+Default Settings
+- Defailt Security Group in a default VPC, will have 
+    - Inbound rules allowing Instances assigned the sae security group to talk to one anotehr
+    - All outbound traffic is allowed
+- Custom Security groups in a VPC will always have 
+    - No inbound rules - basically all inbound tradffic is denied by default.
+    - All outnound traffic is allowed by default.
+
+... to be continued
+
+
+## Elastic Compute Cloud
+
+- EC2 service provides resizable compute capacity in the cloud
+- We have root access to each of our EC2 isntances
+- We can stop, restart, reboot or terminate our instance
+- EC2 availability SLA is 99.5% for each region during any monthly billing period
+    - ~22 minutes per month
+- We can provison our EC2 instances on shared or dedicated hosts (physical servers)
+- To access an instance we need a key and a key pair name
+    - When we launch a new EC2 instance, we can create a public/private key pair
+    - We can download the private key only once
+        - We should save it at safe place so we won't loose it
+    - The public key is saved by AWS to match it yo a key pair name, and a private key when we try tomlogin to the EC2 instance.
+    - If we launch a instance without a key pair, we will not be able to access it (via RDP or SSH)
