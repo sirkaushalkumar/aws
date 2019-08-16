@@ -213,3 +213,37 @@ Default Settings
         - We should save it at safe place so we won't loose it
     - The public key is saved by AWS to match it yo a key pair name, and a private key when we try tomlogin to the EC2 instance.
     - If we launch a instance without a key pair, we will not be able to access it (via RDP or SSH)
+There is a 20EC2 instances soft limit per account, we can submit a request to AWS to increase it.
+- Two types of Block Storage devices are supportted
+    - Elastic Block Store (EBS)
+        - Persistent
+        - network attached virtual drives (e.g. root volume and data volume)
+    - Instance-store
+        - Basically teh virtual hard drive on the host allocated to this EC2 instance
+        - Limited to 10 GB per instance
+    - EC2 instance root/boot volumes can be EBS or Instance Store Volumes
+    - EBS-backed EC2 instance
+        - It has a EBS root volume
+    - Instance-store backed EC2 instnace
+        - It has an Instnace-store root volume
+- EC2 Instance families
+    - General Purpose
+        - Balanced memory and CPU
+        - Suitable for most applicaytions
+        - Ex. M3, M4, T2
+    - Compute Optimized
+        -   More CPU than memory
+        - Compute & HPC intensive use
+        - Ex. C2, C4
+    - Memory Optimized
+        - More RAM/memory
+        - Memory intensive apps, DB, and caching
+        - Ex. R3, R4
+    - GPU compute instances
+        - Graphics Optimized
+        - High Performance and parallel computing
+        - Ex. G2
+    - Storage Optimized
+        - Very Ligh, low latency, I/O
+        - I/O intensive apps, data warehousing, Hadoop
+        - Ex I2, D2
