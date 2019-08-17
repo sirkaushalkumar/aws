@@ -163,7 +163,7 @@ It supports IPv4 and IPV6
     - Has its own default desurity group, NACL, and Route Tables
     - Does not have an Internet Gateway by defaut, one needs to be created if needed.
 
-### Security Groups
+Security Groups
 
 > NIC Cards in AWS are called as **Elastic Network Interface**
 
@@ -247,3 +247,30 @@ There is a 20EC2 instances soft limit per account, we can submit a request to AW
         - Very Ligh, low latency, I/O
         - I/O intensive apps, data warehousing, Hadoop
         - Ex I2, D2
+
+- EBS Types
+    - General Purpose
+        - SSD-Backed (Solid State Devices)
+        - Are better for transactional workloads such as **small databases & boot volumes, Dev/Test environments, Low latency Interactive apps** where performance is highly dependent on IOPS
+        - Volume sizes 1 TiB - 16 TiB (Tibibyte = TiB = 2 to the power 40)
+        - Max IOPS, 10,000
+    - Provisioned IOPS
+        - SSD-backed
+        - Use for mission critical applications and I/O intensive SQL/NoSQL adtabases
+        - Provides sustainable IOPS performance & Low Latency
+        - Max IOPS/Volume, 32,000 IOPS
+        - Volume sizes 4 TiB - 16 TiB
+    - Throughput Optimized HDD
+        - Ideal for streaming, big data, log processing, and data warehousing
+        -  Can not be used as a boot volume
+        - Used for frequently accessed, throughput intensive workloads
+        - Size 500GiB - 16GiB
+    - Cold HDD
+        - Ideal for less frequently accessed workloads
+        - Can not be the boot volume
+        - Size 500GiB - 16 GiB
+    - Magnetic EBS
+        - For transactional workloads, where performance is not dependent on IOPS, rather on MB/Sec transfer rates
+        - HDD backed
+        - Use for infrequently accessed data
+        - Volume sizes 1GiB - 16GiB
