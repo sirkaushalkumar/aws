@@ -274,3 +274,14 @@ There is a 20EC2 instances soft limit per account, we can submit a request to AW
         - HDD backed
         - Use for infrequently accessed data
         - Volume sizes 1GiB - 16GiB
+- EC2 - Block Device Mapping
+    - Block Device Mapping is a amapping of block storage devices in an AMI.
+        - This includes bothe EBS and Instance Storage Volumes
+        - Used to define which block storage volumes (root and data) to include/create when an instance is launched from the AMI
+        - We can view it and both EBS and Instance Store columes
+        - __On the other hand EC2 isntance's block mdevice mapping from the AWS Console shows only EBS volumes of the instance__
+            - __To show the instance-store volumess of the Instance block device mapping, we need to query the instnace metadata__
+
+                [ec2-user~]$ curl http://169.254.169.254/latest/meta-data/block-device-mapping
+
+                
